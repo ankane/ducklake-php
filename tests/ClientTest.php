@@ -33,7 +33,7 @@ final class ClientTest extends TestCase
     public function testSetOptionGlobal()
     {
         $this->client->setOption('parquet_compression', 'snappy');
-        $option = array_find($this->client->options(), fn ($v) => $v['option_name'] == 'parquet_compression' && $v['scope'] == 'GLOBAL');
+        $option = current(array_filter($this->client->options(), fn ($v) => $v['option_name'] == 'parquet_compression' && $v['scope'] == 'GLOBAL'));
         $this->assertEquals('snappy', $option['value']);
     }
 
@@ -42,7 +42,7 @@ final class ClientTest extends TestCase
     {
         $this->createEvents();
         $this->client->setOption('parquet_compression', 'zstd', tableName: 'events');
-        $option = array_find($this->client->options(), fn ($v) => $v['option_name'] == 'parquet_compression' && $v['scope'] == 'TABLE' && $v['scope_entry'] == 'main.events');
+        $option = current(array_filter($this->client->options(), fn ($v) => $v['option_name'] == 'parquet_compression' && $v['scope'] == 'TABLE' && $v['scope_entry'] == 'main.events'));
         $this->assertEquals('zstd', $option['value']);
     }
 
