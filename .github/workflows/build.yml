@@ -1,0 +1,15 @@
+name: build
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: composer install
+      - uses: ankane/setup-postgres@v1
+        with:
+          database: ducklake_php_test
+      - run: createdb ducklake_php_test2
+      - run: CATALOG=postgres composer test
+      - run: CATALOG=sqlite composer test
+      - run: CATALOG=duckdb composer test
