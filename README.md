@@ -187,7 +187,7 @@ Query the data at a specific snapshot version or time
 
 ```php
 $ducklake->sql('SELECT * FROM events AT (VERSION => ?)', [3]);
-# or
+// or
 $ducklake->sql('SELECT * FROM events AT (TIMESTAMP => ?)', [new DateTime()]);
 ```
 
@@ -273,7 +273,7 @@ Drop a table
 
 ```php
 $ducklake->dropTable('events');
-# or
+// or
 $ducklake->dropTable('events', ifExists: true);
 ```
 
@@ -287,7 +287,7 @@ List files at a specific snapshot version or time
 
 ```php
 $ducklake->listFiles('events', snapshotVersion: 3);
-# or
+// or
 $ducklake->listFiles('events', snapshotTime: new DateTime());
 ```
 
