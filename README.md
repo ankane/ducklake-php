@@ -77,7 +77,7 @@ There are two ways to set up the schema:
 2. Configure the client to do it
 
   ```php
-  new DuckLake\Client(createIfNotExists: true, ...)
+  new DuckLake\Client(createIfNotExists: true, ...);
   ```
 
 ## Data Storage
