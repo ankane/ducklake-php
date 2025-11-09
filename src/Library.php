@@ -6,6 +6,6 @@ class Library
 {
     public static function check($event = null)
     {
-        return \Saturio\DuckDB\CLib\Installer::install();
+        return \Saturio\DuckDB\CLib\Installer::install($event);
     }
 }
