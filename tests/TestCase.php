@@ -47,7 +47,8 @@ abstract class TestCase extends BaseTestCase
     {
         return [
             'catalogUrl' => $this->catalogUrl(),
-            'storageUrl' => $this->storageUrl()
+            'storageUrl' => $this->storageUrl(),
+            'overrideStorageUrl' => true
         ];
     }
 

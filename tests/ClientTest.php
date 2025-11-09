@@ -48,17 +48,17 @@ final class ClientTest extends TestCase
 
     public function testFormatVersion()
     {
-        $this->assertEquals('0.2', $this->client->formatVersion());
+        $this->assertEquals('0.3', $this->client->formatVersion());
     }
 
     public function testExtensionVersion()
     {
-        $this->assertEquals('9cc2d90', $this->client->extensionVersion());
+        $this->assertEquals('f134ad8', $this->client->extensionVersion());
     }
 
     public function testDuckdbVersion()
     {
-        $this->assertEquals('v1.3.2', $this->client->duckdbVersion());
+        $this->assertEquals('v1.4.1', $this->client->duckdbVersion());
     }
 
     public function testMergeAdjacentFiles()

@@ -37,7 +37,7 @@ final class SqlTest extends TestCase
     public function testExtraParams()
     {
         $this->expectException(Saturio\DuckDB\Exception\BindValueException::class);
-        $this->expectExceptionMessage("Couldn't bind parameter 2 to prepared statement");
+        $this->expectExceptionMessage("Couldn't bind parameter '2' to prepared statement");
 
         $this->client->sql('SELECT ?', [1, 2]);
     }

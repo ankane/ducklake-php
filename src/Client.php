@@ -13,7 +13,8 @@ class Client
         $snapshotVersion = null,
         $snapshotTime = null,
         $dataInliningRowLimit = 0,
-        $createIfNotExists = false
+        $createIfNotExists = false,
+        $overrideStorageUrl = false // experimental
     ) {
         $extension = null;
         if (str_starts_with($catalogUrl, 'postgres://') || str_starts_with($catalogUrl, 'postgresql://')) {
@@ -51,6 +52,9 @@ class Client
         }
         if ($dataInliningRowLimit > 0) {
             $attachOptions['data_inlining_row_limit'] = $dataInliningRowLimit;
+        }
+        if ($overrideStorageUrl) {
+            $attachOptions['override_data_path'] = true;
         }
 
         $this->catalog = 'ducklake';

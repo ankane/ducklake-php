@@ -25,6 +25,21 @@ Run:
 composer require ankane/ducklake
 ```
 
+Add scripts to `composer.json` to download the shared library:
+
+```json
+    "scripts": {
+        "post-install-cmd": "DuckLake\\Library::check",
+        "post-update-cmd": "DuckLake\\Library::check"
+    }
+```
+
+And run:
+
+```sh
+composer install
+```
+
 ## Getting Started
 
 Create a client - this one stores everything locally

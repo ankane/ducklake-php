@@ -23,13 +23,15 @@
         }
     },
     "require": {
-        "php": ">= 8.1",
-        "satur.io/duckdb": "^1.2.1"
+        "php": ">= 8.3",
+        "satur.io/duckdb": "^2"
     },
     "require-dev": {
         "phpunit/phpunit": "^10"
     },
     "scripts": {
-        "test": "phpunit tests"
+        "test": "phpunit tests",
+        "post-install-cmd": "DuckLake\\Library::check",
+        "post-update-cmd": "DuckLake\\Library::check"
     }
 }
