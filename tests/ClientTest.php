@@ -53,12 +53,12 @@ final class ClientTest extends TestCase
 
     public function testExtensionVersion()
     {
-        $this->assertEquals('f134ad8', $this->client->extensionVersion());
+        $this->assertEquals('77f2512', $this->client->extensionVersion());
     }
 
     public function testDuckdbVersion()
     {
-        $this->assertEquals('v1.4.1', $this->client->duckdbVersion());
+        $this->assertEquals('v1.4.2', $this->client->duckdbVersion());
     }
 
     public function testMergeAdjacentFiles()
@@ -186,8 +186,8 @@ final class ClientTest extends TestCase
 
     public function testDropTableMissing()
     {
-        // TODO fix
-        $this->expectException(TypeError::class);
+        $this->expectException(Saturio\DuckDB\Exception\PreparedStatementExecuteException::class);
+        $this->expectExceptionMessage('Table with name events does not exist!');
 
         $this->client->dropTable('events');
     }
@@ -218,8 +218,8 @@ final class ClientTest extends TestCase
 
         $this->client->detach('pg');
 
-        // TODO fix
-        $this->expectException(TypeError::class);
+        $this->expectException(Saturio\DuckDB\Exception\PreparedStatementExecuteException::class);
+        $this->expectExceptionMessage('Table with name postgres_events does not exist!');
         $this->client->sql('INSERT INTO events SELECT * FROM pg.postgres_events');
     }
 

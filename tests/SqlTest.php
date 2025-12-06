@@ -85,8 +85,8 @@ final class SqlTest extends TestCase
 
     public function testMultipleStatements()
     {
-        // TODO fix
-        $this->expectException(TypeError::class);
+        $this->expectException(Saturio\DuckDB\Exception\PreparedStatementExecuteException::class);
+        $this->expectExceptionMessage('Cannot prepare multiple statements at once!');
 
         $this->client->sql('SELECT 1; SELECT 2');
     }
