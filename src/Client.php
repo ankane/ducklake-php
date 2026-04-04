@@ -50,9 +50,7 @@ class Client
         if (!is_null($snapshotTime)) {
             $attachOptions['snapshot_time'] = $snapshotTime;
         }
-        if ($dataInliningRowLimit > 0) {
-            $attachOptions['data_inlining_row_limit'] = $dataInliningRowLimit;
-        }
+        $attachOptions['data_inlining_row_limit'] = $dataInliningRowLimit;
         if ($overrideStorageUrl) {
             $attachOptions['override_data_path'] = true;
         }

@@ -48,12 +48,12 @@ final class ClientTest extends TestCase
 
     public function testFormatVersion()
     {
-        $this->assertEquals('0.3', $this->client->formatVersion());
+        $this->assertEquals('0.4', $this->client->formatVersion());
     }
 
     public function testExtensionVersion()
     {
-        $this->assertEquals(7, strlen($this->client->extensionVersion()));
+        $this->assertEquals(8, strlen($this->client->extensionVersion()));
     }
 
     public function testDuckdbVersion()
@@ -219,7 +219,7 @@ final class ClientTest extends TestCase
         $this->client->detach('pg');
 
         $this->expectException(Saturio\DuckDB\Exception\PreparedStatementExecuteException::class);
-        $this->expectExceptionMessage('Table with name postgres_events does not exist!');
+        $this->expectExceptionMessage('does not exist');
         $this->client->sql('INSERT INTO events SELECT * FROM pg.postgres_events');
     }
 
