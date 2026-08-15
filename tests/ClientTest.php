@@ -48,7 +48,7 @@ final class ClientTest extends TestCase
 
     public function testFormatVersion()
     {
-        $this->assertEquals('0.4', $this->client->formatVersion());
+        $this->assertEquals('1.0', $this->client->formatVersion());
     }
 
     public function testExtensionVersion()
